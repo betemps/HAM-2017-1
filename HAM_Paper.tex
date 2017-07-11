@@ -1,0 +1,185 @@
+%% LyX 2.1.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[american]{IEEEtran}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{url}
+\usepackage{hyperref}
+\pagenumbering{gobble}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\title{Hybrid Memory Cube in Embedded Systems}
+
+
+\author{\IEEEauthorblockN{Carlos Michel Betemps\textsuperscript{\dag{} \ddag{}}, Bruno Zatt\textsuperscript{\dag{}},
+Mauricio Lima Pilla\textsuperscript{\dag{}}}\\
+\IEEEauthorblockA{\textsuperscript{\dag{}}Federal University of Pelotas (UFPel) - Graduate
+Program in Computing (PPGC) - Pelotas, RS, Brazil\\
+\textsuperscript{\ddag{}}Federal University of Pampa (UNIPAMPA) -
+Campus Bagé - Bagé, RS, Brazil\\
+\{cm.betemps, zatt, pilla\}@inf.ufpel.edu.br}\\
+}
+\maketitle
+\begin{abstract}
+Paper abstract {[}Problem. Solution. Methodology. Results.{]}.
+\end{abstract}
+
+
+\section{Introduction}
+
+{[}Hybrid Memory Cube. Embedded Systems. Paper's Objective. Methodology.
+Paper's structure.{]}
+
+Objetivos:
+\begin{itemize}
+\item Realizar um estudo de revisão sobre memórias HMC (\cite{jeddeloh2012HMC},
+\cite{zou2015Heterogeneous3D}, \cite{beica2015_3D_Integration},
+\cite{pawlowski2011HybridMC}).
+\item Avaliar a utilização de Memórias HMC, em substituição às memórias
+DDR, como memória principal em sistemas embarcados (a partir de metodologia
+apresentada na próxima seção).
+\item Analisar resultados obtidos, apontando tendências, resultados interessantes
+e lições aprendidas.
+\end{itemize}
+
+\section{Related Works}
+
+{[}Works that present and/or use HMC memories.{]}
+
+Vários estudos abordaram o uso de memórias HMC e correlatas. Focando
+em um escopo mais amplo, especificamente em tecnologias 3D, o trabalho
+de Zou et al.\cite{zou2015Heterogeneous3D} aponta a integração de
+memórias 3D em arquiteturas heterogêneas, possibilitando a integração
+de tecnologias diferentes no mesmo chip. Já o trabalho de Beica \cite{beica2015_3D_Integration}
+apresenta uma revisão das tecnologias 3D com integração via TSV (\emph{Through-Silicon
+Via}), focando em aplicações e tendências de mercado. Suresh et al.
+\cite{suresh2014evaluation} apresenta uma avaliação da aplicação
+das tecnologias emergentes de memória no contexto de HPC e aplicações
+intensiva em dados, experimentando arquiteturas híbridas de memórias
+voláteis e não-voláteis. Santos et al. \cite{santos2016exploring}
+apresenta experimentos com uso de HMC (com reduzida latência) em aplicações
+streaming e aponta situações em que o uso de caches L3 é desnecessário.
+Outro estudo lida com questões de desempenho e energia de uma memória
+HMC \emph{Gen2} na execução de aplicações centradas em dados - emulação
+e execução são combinadas em uma placa FPGA \cite{gokhale2015HMC_Charac_wrklds}.
+Alves et al. \cite{alves2016large} apresentam extensões na memória
+HMC para possibilitar o processamento-em-memória (PIM) de operações
+vetoriais, visando evitar a contenção nos canais de comunicação e
+poluição na memória cache. \emph{Active Memory Cube }(AMC) é a arquitetura
+de processamento-em-memória apresentada no trabalho de Nair et al.
+\cite{nair2015active}, a mesma apresenta um conjunto de unidades
+de processamento implementadas na camada de base da memória (HMC).
+Basicamente os trabalhos apontam as vantagens do uso de memórias HMC,
+ressaltando a melhora de latência, largura de banda, potência e densidade
+\cite{jeddeloh2012HMC}. Dado que sistemas embarcados normalmente
+possuem requisitos restritos quanto a área e consumo energético, mas
+ao mesmo tempo requisitos exigentes quanto ao tempo de execução e
+capacidade de processamento, vislumbra-se a possibilidade da aplicação
+de memórias HMC em sistemas embarcados, visando o aumento de desempenho
+(latência e largura de banda) com um eficiente consumo energético
+e de área. Assim, o trabalho visa realizar uma revisão do estado da
+arte sobre memórias HMC e experimentos (simulados) que visam avaliar
+a possibilidade de aplicar memórias HMC como memória principal em
+arquiteturas de sistemas embarcados. Memórias HMC estão em pleno desenvolvimento
+e estudo. O \emph{Hybrid Memory Cube Consortium} \cite{hmc2_1_Consortium}
+reúne uma série de parceiros dedicados ao desenvolvimento desta tecnologia
+de memória.
+
+
+\section{Hybrid Memory Cube Review}
+
+{[}A review about HMC memories.{]}
+
+
+\section{Background}
+
+{[}Concepts, Tools, Benchmarks, Standards, etc. used in the work.{]}
+
+
+\section{Methodology }
+
+{[}Presents the detailed steps applied in the work's development,
+mainly the ones related to the experiments.{]}
+
+Passos:
+\begin{itemize}
+\item Realizar levantamento de artigos que abordem o estado-da-arte sobre
+memórias HMC, focando em sua arquitetura de implementação, suas aplicações,
+vantagens de uso e problemas associados. Deverão ser utilizados artigos
+publicados em eventos e/ou periódicos. As pesquisas serão realizadas
+utilizando a máquina de busca do Google Scholar\footnote{https://scholar.google.com.br/};
+\item Utilizar o simulador gem5 \cite{binkert2011gem5,gem5:2017} para simular
+a arquitetura ARM \cite{ARM:2017} - considerando a grande utilização
+de processadores ARM no contexto de sistemas Embarcados;
+\item Preparar o \emph{setup} para a simulação a ser realizada no gem5 \cite{gem5:2017}.
+Verificar como utilizar simulação com mais de um elemento de processamento
+(core) visando uma maior \textquotedblleft pressão\textquotedblright{}
+sobre o sistema de memória;
+\item Utilizar programas do \emph{benchmark} MiBench \cite{Guthaus:2001:Mibench}
+para execução no simulador gem5;
+\item Realizar a geração, a partir dos códigos fonte do benchmark MiBench
+\cite{MiBench:GitHub:2012}, com o compilador \texttt{gcc-arm-gnueabihf}
+(\emph{cross-compiling}). Como programas para execução pretende-se
+utilizar pelo menos um programa em cada categoria do benchmark;
+\item Utilizar a ferramenta CACTI-3DD \cite{chen2012cacti3DD} para levantar
+dados de potência, área e tempo considerando as memórias HMC e DDR.
+Há uma dificuldade, até o momento, na obtenção da ferramenta. Alternativas
+são zsim-nvmain\footnote{https://github.com/AXLEproject/axle-zsim-nvmain}
+e 3D-Memory-Simulator\footnote{https://github.com/shreyas-singapura/3D-Memory-Simulator}; 
+\item Utilizar o simulador CasHMC \cite{jeon2017cashmc} para levantar dados
+de latência e largura de banda. O simulador recebe como entrada traços
+(traces) de uso de memória. Como saída devolve informações como latência
+e largura de banda. Caso necessário, como alternativa, pode ser analisado
+o uso do simulador HMC-Sim \cite{leidel2014hmc-sim};
+\item Realizar as simulações considerando as seguintes configurações para
+a hierarquia de memória:
+
+\begin{itemize}
+\item L1i\&d: tamanho de 32 KB, associativa 8-way, tamanho de linha 64 B
+(proposta inicial)
+\item Memória Principal: 512MB (confirmar limitação do gem5).
+
+\begin{itemize}
+\item DDR
+\item HMC
+\end{itemize}
+\item Executar simulações com as seguintes hierarquias de memória:
+
+\begin{itemize}
+\item L1 + DDR (ddr) - base
+\item L1 + HMC (hmc)
+\item L1 + L2 + DDR (l2+ddr)
+\item L1 + L2 + HMC (l2+hmc)
+\end{itemize}
+\end{itemize}
+\item Geração de estatísticas, na execução de cada programa em cada diferente
+configuração, para posterior levantamento de estimativas de tempo
+de execução, consumo energético, EDP (\emph{Energy-Delay Product}),
+latência, largura de banda e área; com base nas estatísticas geradas
+pelo gem5, CACTI-3DD e CasHMC.
+\item Análise dos dados levantados, geração de resultados e gráficos de
+interesse, discussão sobre os resultados, apresentação de conclusões
+e encaminhamento de possíveis trabalhos futuros.
+\end{itemize}
+
+\section{Results and Analysis}
+
+{[}Presents the results and its analysis.{]}
+
+
+\section{Conclusion and Future Work}
+
+{[}Present the learned lessons, conclusions and possibilities of enhancement
+and future works.{]}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

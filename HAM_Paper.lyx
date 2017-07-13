@@ -75,7 +75,7 @@
 \begin_body
 
 \begin_layout Title
-Hybrid Memory Cube in Embedded Systems
+HMC as Main Memory in Embedded Systems
 \end_layout
 
 \begin_layout Author
@@ -170,6 +170,12 @@ Paper abstract [Problem.
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Introduction"
+
+\end_inset
+
 Introduction
 \end_layout
 
@@ -228,101 +234,17 @@ Analisar resultados obtidos, apontando tendências, resultados interessantes
  e lições aprendidas.
 \end_layout
 
-\begin_layout Section
-Related Works
-\end_layout
-
 \begin_layout Standard
-[Works that present and/or use HMC memories.]
-\end_layout
-
-\begin_layout Standard
-Vários estudos abordaram o uso de memórias HMC e correlatas.
- Focando em um escopo mais amplo, especificamente em tecnologias 3D, o trabalho
- de Zou et al.
-\begin_inset CommandInset citation
-LatexCommand cite
-key "zou2015Heterogeneous3D"
+Basicamente os trabalhos que utilizam memórias HMC, como os apresentados
+ na seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Related-Works"
 
 \end_inset
 
- aponta a integração de memórias 3D em arquiteturas heterogêneas, possibilitando
- a integração de tecnologias diferentes no mesmo chip.
- Já o trabalho de Beica 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "beica2015_3D_Integration"
-
-\end_inset
-
- apresenta uma revisão das tecnologias 3D com integração via TSV (
-\emph on
-Through-Silicon Via
-\emph default
-), focando em aplicações e tendências de mercado.
- Suresh et al.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "suresh2014evaluation"
-
-\end_inset
-
- apresenta uma avaliação da aplicação das tecnologias emergentes de memória
- no contexto de HPC e aplicações intensiva em dados, experimentando arquiteturas
- híbridas de memórias voláteis e não-voláteis.
- Santos et al.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "santos2016exploring"
-
-\end_inset
-
- apresenta experimentos com uso de HMC (com reduzida latência) em aplicações
- streaming e aponta situações em que o uso de caches L3 é desnecessário.
- Outro estudo lida com questões de desempenho e energia de uma memória HMC
- 
-\emph on
-Gen2
-\emph default
- na execução de aplicações centradas em dados - emulação e execução são
- combinadas em uma placa FPGA 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "gokhale2015HMC_Charac_wrklds"
-
-\end_inset
-
-.
- Alves et al.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "alves2016large"
-
-\end_inset
-
- apresentam extensões na memória HMC para possibilitar o processamento-em-memóri
-a (PIM) de operações vetoriais, visando evitar a contenção nos canais de
- comunicação e poluição na memória cache.
- 
-\emph on
-Active Memory Cube 
-\emph default
-(AMC) é a arquitetura de processamento-em-memória apresentada no trabalho
- de Nair et al.
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "nair2015active"
-
-\end_inset
-
-, a mesma apresenta um conjunto de unidades de processamento implementadas
- na camada de base da memória (HMC).
- Basicamente os trabalhos apontam as vantagens do uso de memórias HMC, ressaltan
-do a melhora de latência, largura de banda, potência e densidade 
+, apontam as vantagens do uso de memórias HMC, ressaltando a melhora de
+ latência, largura de banda, potência e densidade 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "jeddeloh2012HMC"
@@ -356,6 +278,108 @@ key "hmc2_1_Consortium"
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Related-Works"
+
+\end_inset
+
+Related Works
+\end_layout
+
+\begin_layout Standard
+[Works that present and/or use HMC memories.]
+\end_layout
+
+\begin_layout Standard
+Some works had used HMC and related memories.
+ Focusing on a broader scope, especifically on 3D technology, Zou et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "zou2015Heterogeneous3D"
+
+\end_inset
+
+ presents the 3D memory integration in heterogeneous architectures, allowing
+ the integration of disparate technologies on the same chip.
+ Beica 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "beica2015_3D_Integration"
+
+\end_inset
+
+ presents a review of 3D technologies with TSV integration, presenting market
+ trends and applications.
+ An evaluation of applying the emergent memory technologies on data-intensive
+ applications and HPC context is presented in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "suresh2014evaluation"
+
+\end_inset
+
+, using hybrid architectures with volatile and non-volatile memories.
+\end_layout
+
+\begin_layout Standard
+Santos et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "santos2016exploring"
+
+\end_inset
+
+ explore the use of the reduced latency HMC memories to streaming aplications
+ and point out situations where the use of L3 cache is not necessary.
+ Other work 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "gokhale2015HMC_Charac_wrklds"
+
+\end_inset
+
+ deals with performance and energy consumption issues of using a Gen2 HMC
+ memory in the running of data-centered applications - emulation and execution
+ are combined in a FPGA board.
+ Alves et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "alves2016large"
+
+\end_inset
+
+ proposes HMC memories extensions to make possible processing-in-memory
+ of vector operations, aiming mitigate communication channel contention
+ and cache polution.
+ 
+\emph on
+Active Memory Cube 
+\emph default
+(AMC) is the processing-in-memory presented in Nair et al.
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nair2015active"
+
+\end_inset
+
+.
+ This work uses a set of processing units implemented at the HMC's logic
+ layer.
+ 
+\end_layout
+
+\begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Hybrid-Memory-Cube"
+
+\end_inset
+
 Hybrid Memory Cube Review
 \end_layout
 
@@ -363,7 +387,224 @@ Hybrid Memory Cube Review
 [A review about HMC memories.]
 \end_layout
 
+\begin_layout Standard
+A Hybrid Memory Cube (HMC) is a single package containing either four or
+ eight DRAM die and one logic die, all stacked together using through-silicon
+ via (TSV) technology 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "hmc2_1_Consortium"
+
+\end_inset
+
+.
+ This three-dimensional DRAM architecture effectively reduce the distance
+ traveled by signals, increasing the density of the memory and significantly
+ increasing the performance achieved 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "suresh2014evaluation"
+
+\end_inset
+
+.
+ The stacking of many dense DRAM devices produces a very high-density footprint.
+ Thus, HMC improves latency, bandwidth, power, and density 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "jeddeloh2012HMC"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:HMC-System"
+
+\end_inset
+
+ shows the HMC system diagram.
+ The HMC is a stack of heterogeneous die, with a standard DRAM as a building
+ block, which can be combined with various versions of application-specific
+ logic (logic die).
+ The through-silicon via (TSV) technology and fine pitch copper pillar are
+ used to interconnect the dies 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "jeddeloh2012HMC"
+
+\end_inset
+
+.
+ HMC is connected to the CPU or the GPU through high speed serial links
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "jeon2017cashmc"
+
+\end_inset
+
+.
+ HMC uses a simple abstracted protocol versus a traditional DRAM.
+ The host sends read and write commands versus the traditional RAS (Row
+ Access Strobe) and CAS (Column Access Strobe) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "jeddeloh2012HMC"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/HMC_SystemDiagram.png
+	scale 22
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:HMC-System"
+
+\end_inset
+
+HMC System 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "jeddeloh2012HMC"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The logic die is used to control the DRAM.
+ Therefore, a high capacity memory can be implemented by chaining several
+ HMC devices.
+ Moreover, since the logic die supports arithmetic and logic operations
+ with internal or external memory data, HMC has been employed in the processing-
+in-memory (PIM) architecture 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "jeon2017cashmc"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The HMC DRAM is a die segmented into multiple autonomous partitions.
+ Each partition includes two independent memory banks.
+ Memory vaults are vertical stacks of DRAM partitions.
+ Each partition consists of 32 data TSV connections and additional command/addre
+ss/ECC connections 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "jeddeloh2012HMC"
+
+\end_inset
+
+ (see Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:HMC-Block-Diagram"
+
+\end_inset
+
+).
+ Within an HMC, memory is organized into vaults.
+ Each vault has a memory controller (called a vault controller) in the logic
+ base that manages all memory reference operations within that vault.
+ Each vault controller determines its own timing requirements.
+ Refresh operations are controlled by the vault controller, eliminating
+ this function from the host memory controller 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "hmc2_1_Consortium"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename images/HMCBlockDiagram.png
+	scale 25
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:HMC-Block-Diagram"
+
+\end_inset
+
+HMC Block Diagram
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Background"
+
+\end_inset
+
 Background
 \end_layout
 
@@ -373,6 +614,12 @@ Background
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Methodology"
+
+\end_inset
+
 Methodology 
 \end_layout
 
@@ -485,8 +732,8 @@ key "chen2012cacti3DD"
 
  para levantar dados de potência, área e tempo considerando as memórias
  HMC e DDR.
- Há uma dificuldade, até o momento, na obtenção da ferramenta.
- Alternativas são zsim-nvmain
+ No entanto, há dificuldade, até o momento, na obtenção da referida ferramenta.
+ Como alternativas tem-se: zsim-nvmain
 \begin_inset Foot
 status open
 
@@ -496,7 +743,7 @@ https://github.com/AXLEproject/axle-zsim-nvmain
 
 \end_inset
 
- e 3D-Memory-Simulator
+, 3D-Memory-Simulator
 \begin_inset Foot
 status open
 
@@ -506,7 +753,17 @@ https://github.com/shreyas-singapura/3D-Memory-Simulator
 
 \end_inset
 
-; 
+, gem5 com patch para memórias HMC, DRAMSpec 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+http://www.uni-kl.de/3d-dram/tools/
+\end_layout
+
+\end_inset
+
+ ; 
 \end_layout
 
 \begin_layout Itemize
@@ -538,7 +795,7 @@ Realizar as simulações considerando as seguintes configurações para a hierar
 
 \begin_deeper
 \begin_layout Itemize
-L1i&d: tamanho de 32 KB, associativa 8-way, tamanho de linha 64 B (proposta
+L1i&d: tamanho de 32 KB, associativa 8-vias, tamanho de linha 64 B (proposta
  inicial)
 \end_layout
 
@@ -597,6 +854,12 @@ Análise dos dados levantados, geração de resultados e gráficos de interesse,
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Results-and-Analysis"
+
+\end_inset
+
 Results and Analysis
 \end_layout
 
@@ -605,6 +868,12 @@ Results and Analysis
 \end_layout
 
 \begin_layout Section
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Conclusion-and-Future"
+
+\end_inset
+
 Conclusion and Future Work
 \end_layout
 

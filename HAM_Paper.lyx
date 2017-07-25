@@ -224,17 +224,73 @@ key "pawlowski2011HybridMC"
 \end_layout
 
 \begin_layout Itemize
-Avaliar a utilização de Memórias HMC, em substituição às memórias DDR, como
- memória principal em sistemas embarcados (a partir de metodologia apresentada
- na próxima seção).
+An evaluation of HMC memories usage in embedded systems domain, in replacement
+ of DDR memories as system main memory;
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ Avaliar a utilização de Memórias HMC, em substituição às memórias DDR,
+ como memória principal em sistemas embarcados (a partir de metodologia
+ apresentada na próxima seção).
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
+Analysis of the experiments results pointing out trends and learned lessons.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Analisar resultados obtidos, apontando tendências, resultados interessantes
  e lições aprendidas.
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
+
+\emph on
+Hybrid Memory Cube Consortium
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "hmc2_1_Consortium"
+
+\end_inset
+
+ embraces a number of partners dedicated to the development of HMC technology.
+ HMC memories highlights are the improved latency, bandwidth, and density
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "jeddeloh2012HMC"
+
+\end_inset
+
+.
+ Embedded Systems usually have restrictions in area and energy consumption,
+ and yet stringent constraints about execution time and processing capacity
+ (bandwidth).
+ We evaluate HMC memories as the main memory technology in embedded systems
+ domain.
+ The evaluation uses simulated experiments.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Basicamente os trabalhos que utilizam memórias HMC, como os apresentados
  na seção 
 \begin_inset CommandInset ref
@@ -275,6 +331,15 @@ key "hmc2_1_Consortium"
 
  reúne uma série de parceiros dedicados ao desenvolvimento desta tecnologia
  de memória.
+\end_layout
+
+\begin_layout Plain Layout
+with gem5, CACTI-3DD, CasHMC.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -359,7 +424,7 @@ key "alves2016large"
 \emph on
 Active Memory Cube 
 \emph default
-(AMC) is the processing-in-memory presented in Nair et al.
+(AMC) is a processing-in-memory architecture presented by Nair et al.
  
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -367,10 +432,9 @@ key "nair2015active"
 
 \end_inset
 
-.
- This work uses a set of processing units implemented at the HMC's logic
- layer.
- 
+ that uses a set of processing units implemented at the HMC's logic layer.
+ This work uses HMC as main memory and evaluates the L2 cache need in Embedded
+ Systems domain.
 \end_layout
 
 \begin_layout Section
@@ -465,7 +529,7 @@ key "jeddeloh2012HMC"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -563,7 +627,7 @@ key "hmc2_1_Consortium"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -626,13 +690,14 @@ Methodology
 \begin_layout Standard
 [Presents the detailed steps applied in the work's development, mainly the
  ones related to the experiments.]
-\end_layout
+\begin_inset Note Note
+status open
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Passos:
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
 Realizar levantamento de artigos que abordem o estado-da-arte sobre memórias
  HMC, focando em sua arquitetura de implementação, suas aplicações, vantagens
  de uso e problemas associados.
@@ -650,7 +715,32 @@ https://scholar.google.com.br/
 ;
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The methodology consist of the follow steps
+\end_layout
+
 \begin_layout Itemize
+Use 
+\emph on
+gem5
+\emph default
+ to simulate the ARM architecure 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ARM:2017"
+
+\end_inset
+
+, considering the needed simulation setup; 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Utilizar o simulador gem5 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -669,7 +759,13 @@ key "ARM:2017"
  sistemas Embarcados;
 \end_layout
 
-\begin_layout Itemize
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Preparar o 
 \emph on
 setup
@@ -686,7 +782,28 @@ key "gem5:2017"
  (core) visando uma maior “pressão” sobre o sistema de memória;
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
+Use 
+\emph on
+MiBench
+\emph default
+ benchmark 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Guthaus:2001:Mibench"
+
+\end_inset
+
+ cross-compiled applications to run at the simulated ARM architecture; 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Utilizar programas do 
 \emph on
 benchmark
@@ -722,7 +839,24 @@ cross-compiling
  em cada categoria do benchmark;
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
+Use CACTI-3DD 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chen2012cacti3DD"
+
+\end_inset
+
+ to get power, area, and time estimations of HMC and DDR memories;
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Utilizar a ferramenta CACTI-3DD 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -766,7 +900,25 @@ http://www.uni-kl.de/3d-dram/tools/
  ; 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
+Use CasHMC 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "jeon2017cashmc"
+
+\end_inset
+
+ to get latency and bandwidth data.
+ The CasHMC receives as input memory traces; 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Utilizar o simulador CasHMC 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -788,19 +940,88 @@ key "leidel2014hmc-sim"
 ;
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
-Realizar as simulações considerando as seguintes configurações para a hierarquia
- de memória:
+The simulation have used the following memory hierarchy settings, inspired
+ by the characteristics of Cortex-A7 processor 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "A7:2013"
+
+\end_inset
+
+ cluster used in the 
+\emph on
+big.LITLLE
+\emph default
+ architecture 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bigLittle:2013"
+
+\end_inset
+
+ of Exynos 5422 SoC 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Exynos:2017"
+
+\end_inset
+
+, available in the ODROID XU-3 board 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Odroid:2013"
+
+\end_inset
+
+:
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-L1i&d: tamanho de 32 KB, associativa 8-vias, tamanho de linha 64 B (proposta
- inicial)
+L1i: 32kB size, 2-way associativity, 64B cache line size;
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+tamanho de 32 KB, associativa 8-vias, tamanho de linha 64 B (proposta inicial)
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
+L1d: 32kB size, 4-way associativity, 64B cache line size;
+\end_layout
+
+\begin_layout Itemize
+L2: 512kB size, 16-way associativity, 64B cache line size (if present);
+ 
+\end_layout
+
+\begin_layout Itemize
+Main Memory: 2GB size, considering DDR and HMC technologies;
+\begin_inset Note Note
+status open
+
+\begin_layout Itemize
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Memória Principal: 512MB (confirmar limitação do gem5).
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -813,29 +1034,40 @@ HMC
 \end_layout
 
 \end_deeper
+\end_inset
+
+
+\end_layout
+
 \begin_layout Itemize
-Executar simulações com as seguintes hierarquias de memória:
+Experimentation' Settings:
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-L1 + DDR (ddr) - base
+L1 + DDR (ddr) - base setting
 \end_layout
 
 \begin_layout Itemize
-L1 + HMC (hmc)
+L1 + HMC (hmc) - to evaluate the gain of HMC memories against DDR;
 \end_layout
 
 \begin_layout Itemize
-L1 + L2 + DDR (l2+ddr)
+L1 + L2 + DDR (l2+ddr) - to evaluate the gain of L2 cache insertion in the
+ memory hierarchy;
 \end_layout
 
 \begin_layout Itemize
-L1 + L2 + HMC (l2+hmc)
+L1 + L2 + HMC (l2+hmc) - to evaluate the gain of L2 cache insertion and
+ the use of HMC memory as main memory.
 \end_layout
 
 \end_deeper
 \end_deeper
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
 \begin_layout Itemize
 Geração de estatísticas, na execução de cada programa em cada diferente
  configuração, para posterior levantamento de estimativas de tempo de execução,
@@ -851,6 +1083,11 @@ Energy-Delay Product
 Análise dos dados levantados, geração de resultados e gráficos de interesse,
  discussão sobre os resultados, apresentação de conclusões e encaminhamento
  de possíveis trabalhos futuros.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

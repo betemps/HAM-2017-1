@@ -721,7 +721,7 @@ https://scholar.google.com.br/
 \end_layout
 
 \begin_layout Standard
-The methodology consist of the follow steps
+The methodology consist of the follow steps:
 \end_layout
 
 \begin_layout Itemize
@@ -799,7 +799,20 @@ key "Guthaus:2001:Mibench"
 
 \end_inset
 
- cross-compiled applications to run at the simulated ARM architecture; 
+ cross-compiled applications to run at the simulated ARM architecture.
+ The used 
+\emph on
+MiBench
+\emph default
+ applications are presented on Tab.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Applications-on-CPU"
+
+\end_inset
+
+; 
 \begin_inset Note Note
 status open
 
@@ -867,7 +880,11 @@ key "chen2012cacti3DD"
  para levantar dados de potência, área e tempo considerando as memórias
  HMC e DDR.
  No entanto, há dificuldade, até o momento, na obtenção da referida ferramenta.
- Como alternativas tem-se: zsim-nvmain
+ Como alternativas tem-se: 
+\end_layout
+
+\begin_layout Plain Layout
+zsim-nvmain
 \begin_inset Foot
 status open
 
@@ -877,7 +894,11 @@ https://github.com/AXLEproject/axle-zsim-nvmain
 
 \end_inset
 
-, 3D-Memory-Simulator
+ - http://people.csail.mit.edu/sanchez/papers/2013.zsim.isca.pdf
+\end_layout
+
+\begin_layout Plain Layout
+3D-Memory-Simulator
 \begin_inset Foot
 status open
 
@@ -887,7 +908,15 @@ https://github.com/shreyas-singapura/3D-Memory-Simulator
 
 \end_inset
 
-, gem5 com patch para memórias HMC, DRAMSpec 
+, 
+\end_layout
+
+\begin_layout Plain Layout
+gem5 com patch para memórias HMC, 
+\end_layout
+
+\begin_layout Plain Layout
+DRAMSpec 
 \begin_inset Foot
 status open
 
@@ -898,6 +927,15 @@ http://www.uni-kl.de/3d-dram/tools/
 \end_inset
 
  ; 
+\end_layout
+
+\begin_layout Plain Layout
+Structural Simulation Toolkit - http://sst-simulator.org/
+\end_layout
+
+\begin_layout Plain Layout
+SMCSim - https://www.hipeac.net/press/6795/release-of-smcsim-simulation-platform-f
+ull-system-analysis-of-near-memory-computation/
 \end_layout
 
 \end_inset
@@ -954,6 +992,11 @@ key "A7:2013"
 
 \end_inset
 
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
  cluster used in the 
 \emph on
 big.LITLLE
@@ -976,6 +1019,11 @@ key "Exynos:2017"
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Odroid:2013"
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -1064,6 +1112,29 @@ L1 + L2 + HMC (l2+hmc) - to evaluate the gain of L2 cache insertion and
 
 \end_deeper
 \end_deeper
+\begin_layout Itemize
+The used architecture on the experiments is composed of two processors.
+ The Alg.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:Execution-Script"
+
+\end_inset
+
+ presents the simulation script used to put the applications in execution
+ on the architecture processors.
+ The 
+\family typewriter
+nohup
+\family default
+ allows to run a command ignoring hangup signals, and the 
+\family typewriter
+taskset
+\family default
+ is used to launch a new command with a given CPU affinity.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Note Note
 status open
@@ -1083,6 +1154,334 @@ Energy-Delay Product
 Análise dos dados levantados, geração de resultados e gráficos de interesse,
  discussão sobre os resultados, apresentação de conclusões e encaminhamento
  de possíveis trabalhos futuros.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Applications-on-CPU"
+
+\end_inset
+
+Applications' Allocation on each CPU 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="2">
+<features rotate="0" tabularvalignment="middle" tabularwidth="70col%">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Core0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Core1
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+basicmath
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+bitcnts
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+qsort
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+dijkstra
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+patricia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+stringsearch
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+jpeg
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+typeset
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+blowfish enc.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+sha
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+GSM enc.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:Execution-Script"
+
+\end_inset
+
+Execution Script
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset listings
+lstparams "basicstyle={\scriptsize}"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+#!/bin/sh
+\end_layout
+
+\begin_layout Plain Layout
+
+# Wait for system to calm down
+\end_layout
+
+\begin_layout Plain Layout
+
+sleep 10
+\end_layout
+
+\begin_layout Plain Layout
+
+cd mibench # go to applications' folder
+\end_layout
+
+\begin_layout Plain Layout
+
+m5 resetstats # Reset the gem5 stats
+\end_layout
+
+\begin_layout Plain Layout
+
+nohup taskset -c 0 ./basicmath_small ...
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+nohup taskset -c 1 ./bitcnts 75000   ...
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+nohup taskset -c 0 ./qsort_small qs_input_small.dat ...
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+nohup taskset -c 1 ./dijkstra_small input.dat ...
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+nohup taskset -c 0 ./patricia small.udp ...
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+nohup taskset -c 1 ./search_small ...
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+nohup taskset -c 0 ./jpeg_small.sh ...
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+nohup taskset -c 1 ./lout-3.24/lout ...
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+nohup taskset -c 0 ./bf e input_small.asc ...
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+nohup taskset -c 1 ./sha input_small.asc ...
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+nohup taskset -c 0 ./toast -fps -c data/small.au ...
+ &
+\end_layout
+
+\begin_layout Plain Layout
+
+wait # wait all applications finish its work
+\end_layout
+
+\begin_layout Plain Layout
+
+m5 dumpstats # save gem5 stats
+\end_layout
+
+\begin_layout Plain Layout
+
+m5 exit # exit the simulation
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
